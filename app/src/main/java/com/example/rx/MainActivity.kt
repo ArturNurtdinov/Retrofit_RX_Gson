@@ -30,8 +30,7 @@ class MainActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(
                     this,
                     arrayOf(android.Manifest.permission.INTERNET),
-                    1
-            )
+                    1)
         }
 
         val rxTutorialRetrofit = Retrofit.Builder()
@@ -44,9 +43,7 @@ class MainActivity : AppCompatActivity() {
         testObservable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ Log.d(TAG, "${it.body()?.users?.size}") },
-                        {
-                            it.printStackTrace()
-                        })
+                        { it.printStackTrace() })
         Log.d(TAG, "Main thread")
     }
 }
